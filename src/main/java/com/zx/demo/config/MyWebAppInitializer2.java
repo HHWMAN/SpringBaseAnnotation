@@ -1,14 +1,15 @@
-/*
+package com.zx.demo.config;
 import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.XmlWebApplicationContext;
-import org.springframework.web.filter.CharacterEncodingFilter;
-import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.FrameworkServlet;
-import org.springframework.web.servlet.support.AbstractDispatcherServletInitializer;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.Filter;
 
-public class MyWebAppInitializer2 extends AbstractDispatcherServletInitializer {
+//层级上下文配置
+/*
+* AbstractAnnotationConfigDispatcherServletInitializer  注解配置实现DispatcherServlet
+*
+* AbstractDispatcherServletInitializer     xml配置实现DispatcherServlet
+* public class MyWebAppInitializer extends AbstractDispatcherServletInitializer {
 
     @Override
     protected WebApplicationContext createRootApplicationContext() {
@@ -23,18 +24,32 @@ public class MyWebAppInitializer2 extends AbstractDispatcherServletInitializer {
     }
 
     @Override
+    protected Filter[] getServletFilters() {
+        return new Filter[] {
+            new HiddenHttpMethodFilter(), new CharacterEncodingFilter() };
+    }
+
+    @Override
+    protected String[] getServletMappings() {
+        return new String[] { "/" };
+    }
+}
+* */
+public class MyWebAppInitializer2 extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+    @Override
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class<?>[] { MvcRootConfig.class };
+    }
+
+    @Override
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class<?>[] { MvcWebConfig.class };
+    }
+
+    @Override
     protected String[] getServletMappings() {
         return new String[] { "/" };
     }
 
-    @Override
-    protected Filter[] getServletFilters() {
-        return new Filter[] {
-                new HiddenHttpMethodFilter(), new CharacterEncodingFilter() };
-    }
-
-    @Override
-    protected FrameworkServlet createDispatcherServlet(WebApplicationContext servletAppContext) {
-        return super.createDispatcherServlet(servletAppContext);
-    }
-}*/
+}

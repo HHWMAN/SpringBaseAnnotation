@@ -5,15 +5,12 @@ package com.zx.demo.controller;
 import com.zx.demo.dao.UserDao;
 import com.zx.demo.dao.mybatis.UserMapper;
 
-import com.zx.demo.security.AppRoleAuthority;
-import com.zx.demo.security.AppUserDetails;
-import com.zx.demo.service.UserService;
+
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,14 +25,14 @@ import java.util.Collection;
 @Controller
 public class IndexController {
 
-    @Autowired
+/*    @Autowired
     UserMapper userMapper;
 
     @Autowired
     private UserDao UserDaoImpl;
 
     @Autowired
-    private UserService userService;
+    private UserService userService;*/
 
    protected final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
@@ -76,20 +73,6 @@ public class IndexController {
 
     @RequestMapping("/demo")
     public String getDemo() {
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        if (principal instanceof AppUserDetails) {
-            Collection<? extends GrantedAuthority> test = ((AppUserDetails)principal).getAuthorities();
-            String authority="";
-            for(int i=0;i<test.size();i++) {
-               authority = ((GrantedAuthority) ((java.util.ArrayList) test).get(i)).getAuthority();
-               logger.info(authority);
-            }
-
-        } else {
-            String username = principal.toString();
-        }
-
 
 
               logger.info("demo");

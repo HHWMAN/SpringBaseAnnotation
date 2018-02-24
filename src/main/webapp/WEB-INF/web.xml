@@ -3,7 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <context-param>
+
+   <!-- <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
             /WEB-INF/applicationContext.xml
@@ -16,10 +17,10 @@
     </listener>
     <listener>
         <listener-class>org.springframework.web.context.ContextCleanupListener</listener-class>
-        <!-- Web应用关闭时，清理ServletContext中spring相关的可销毁资源 -->
+        &lt;!&ndash; Web应用关闭时，清理ServletContext中spring相关的可销毁资源 &ndash;&gt;
     </listener>
 
-<!--session 监听-->
+&lt;!&ndash;session 监听&ndash;&gt;
     <listener>
         <listener-class>
             org.springframework.security.web.session.HttpSessionEventPublisher
@@ -29,7 +30,7 @@
 
 
 
-    <!-- 字符集过滤器 -->
+    &lt;!&ndash; 字符集过滤器 &ndash;&gt;
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -43,11 +44,11 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!--js css-->
-   <!-- <servlet-mapping>
+    &lt;!&ndash;js css&ndash;&gt;
+   &lt;!&ndash; <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.js</url-pattern>
-    </servlet-mapping>-->
+    </servlet-mapping>&ndash;&gt;
     <servlet-mapping>
         <servlet-name>default</servlet-name >
         <url-pattern>*.css</url-pattern>
@@ -69,7 +70,7 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <!--logback  status messages-->
+    &lt;!&ndash;logback  status messages&ndash;&gt;
     <servlet>
         <servlet-name>ViewStatusMessages</servlet-name>
         <servlet-class>ch.qos.logback.classic.ViewStatusMessagesServlet</servlet-class>
@@ -81,7 +82,7 @@
     </servlet-mapping>
 
 
-    <!--secutity-->
+    &lt;!&ndash;secutity&ndash;&gt;
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -96,5 +97,5 @@
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
+    </welcome-file-list>-->
 </web-app>

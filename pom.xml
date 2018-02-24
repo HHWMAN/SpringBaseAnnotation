@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>MavenSpring</groupId>
-    <artifactId>SpringBase</artifactId>
+    <artifactId>SpringBaseAnnotation</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -126,7 +126,7 @@
 
 
         <!--spring security-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
             <version>4.2.3.RELEASE</version>
@@ -136,7 +136,7 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
             <version>4.2.3.RELEASE</version>
-        </dependency>
+        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
         <dependency>

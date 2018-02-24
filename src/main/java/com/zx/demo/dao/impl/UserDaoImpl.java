@@ -1,3 +1,4 @@
+/*
 package com.zx.demo.dao.impl;
 
 import com.zx.demo.dao.UserDao;
@@ -7,9 +8,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+*/
 /**
  * Created by ZX on 2017/11/14.
- */
+ *//*
+
 @Repository
 public class UserDaoImpl implements UserDao {
 
@@ -35,3 +38,4 @@ public class UserDaoImpl implements UserDao {
         return null;
     }
 }
+*/
